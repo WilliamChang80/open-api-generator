@@ -1,4 +1,4 @@
-java -jar swagger-codegen-cli.jar generate \
+java -jar ./script/swagger-codegen-cli.jar generate \
     -i https://petstore.swagger.io/v2/swagger.json \
     -l typescript-axios \
     -o ../generated/typescript
