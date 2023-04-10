@@ -3,4 +3,4 @@ java -jar ./script/swagger-codegen-cli.jar generate \
     -l typescript-axios \
     -o ../generated/typescript
 
-cp ./script/publish-typescript.sh ./generated/typescript
+cp ./script/publish-typescript.sh ../generated/typescript
