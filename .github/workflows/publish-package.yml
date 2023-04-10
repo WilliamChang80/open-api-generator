@@ -24,6 +24,6 @@ jobs:
       - name: Generate Typescript
         run: ./script/generate-typescript.sh
       - name: Publish Typescript
-        run: ./script/publish-typescript.sh
+        run: ./generated/typescript/publish-typescript.sh
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
