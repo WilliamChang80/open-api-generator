@@ -2,6 +2,7 @@ cd ../generated/typescript
 echo "Current directory is: $(pwd)"
 npm install
 
-echo "WilliamChang80:registry=https://npm.pkg.github.com" > .npmrc
+echo "@WilliamChang80:registry=https://npm.pkg.github.com" > .npmrc
+echo "always-auth=true" > .npmrc
 
 npm publish
