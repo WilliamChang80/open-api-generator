@@ -27,3 +27,5 @@ jobs:
         run: ./script/generate-typescript.sh
       - name: Publish Typescript
         run: cd ./generated/typescript && ./publish-typescript.sh
+        env:
+          NPM_TOKEN: ${{ secrets.TOKEN }}
