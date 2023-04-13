@@ -8,11 +8,6 @@ on:
 jobs:
   publish-typescript:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-    env:
-      GITHUB_TOKEN: ${{ secrets.TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,5 +26,5 @@ jobs:
       - name: Publish Typescript
         run: cd ./generated/typescript && ./publish-typescript.sh
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ARTIFACT_VERSION: ${{  github.ref_name }}
+          NPM_TOKEN: ${{ secrets.TOKEN }}
+          ARTIFACT_VERSION: ${{ github.ref_name }}
