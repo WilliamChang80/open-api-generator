@@ -1,4 +1,4 @@
-name: Publish Typescript
+name: Publish Package
 
 on:
   push:
@@ -30,3 +30,4 @@ jobs:
         run: cd ./generated/typescript && ./publish-typescript.sh
         env:
           NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ARTIFACT_VERSION: ${{  github.ref_name }}
