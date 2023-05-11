@@ -6,7 +6,7 @@ fi
 echo "Generating API with version $ARTIFACT_VERSION"
 
 java -jar ./script/swagger-codegen-cli.jar generate \
-    -i https://petstore.swagger.io/v2/swagger.json \
+    -i ./spec/swagger.yml \
     -l typescript-axios \
     -o ./generated/typescript \
     --artifact-version $ARTIFACT_VERSION \
