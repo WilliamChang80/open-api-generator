@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      ARTIFACT_VERSION: ${GITHUB_SHA::7}
     steps:
       - uses: actions/checkout@master
         with:
@@ -19,6 +17,8 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
+      - name: Export version
+        run: ARTIFACT_VERSION=${GITHUB_SHA::7}
       - name: Generate Go
         run: ./script/generate-go.sh
       - name: Publish Go
