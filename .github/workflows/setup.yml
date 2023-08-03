@@ -23,7 +23,6 @@ jobs:
         run: ./script/generate-go.sh
         env:
           ARTIFACT_VERSION: ${{ env.ARTIFACT_VERSION }}
-          GENERATED_API_NAME: ${{ env.GENERATED_API_NAME }}
       - name: Publish Go
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

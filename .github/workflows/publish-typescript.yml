@@ -32,3 +32,4 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.TOKEN }}
           REGISTRY_USER: ${{ github.repository_owner }}
+          GENERATED_API_NAME: ${{ env.GENERATED_API_NAME }}
