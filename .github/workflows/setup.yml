@@ -24,7 +24,7 @@ jobs:
       - name: Publish Go
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Generate go code version ${ARTIFACT_VERSION}"
+          commit_message: "Generate go code version ${{ ARTIFACT_VERSION }}"
           commit_options: "--no-verify"
       - name: Bump version and push tag
         uses: mathieudutour/github-tag-action@v4.5
