@@ -25,9 +25,15 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Generate Typescript
         run: ./script/generate-typescript.sh
-        env:
-          REGISTRY_USER: ${{ github.repository_owner }}
       - name: Publish Typescript
         run: cd ./generated/typescript && ./publish-typescript.sh
         env:
           NPM_TOKEN: ${{ secrets.TOKEN }}
+          REGISTRY_USER: ${{ github.repository_owner }}
+      - name: Generate Go
+        run: ./script/generate-go.sh
+      - name: Publish Go
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Generate go code"
+          commit_options: "--no-verify"
