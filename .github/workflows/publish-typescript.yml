@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ARTIFACT_VERSION: ${{ github.ref_name }}
+      GENERATED_API_NAME: ${{ github.repository_owner }}/open-api
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,11 +26,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Generate Typescript
         run: ./script/generate-typescript.sh
-        env:
-          GENERATED_API_NAME: ${{ env.GENERATED_API_NAME }}
       - name: Publish Typescript
         run: cd ./generated/typescript && ./publish-typescript.sh
         env:
           NPM_TOKEN: ${{ secrets.TOKEN }}
           REGISTRY_USER: ${{ github.repository_owner }}
-          GENERATED_API_NAME: ${{ env.GENERATED_API_NAME }}
