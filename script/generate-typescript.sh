@@ -3,7 +3,7 @@ if [[ -z "$ARTIFACT_VERSION" ]]; then
     exit 
 fi
 
-echo "Generating API with version $ARTIFACT_VERSION"
+echo "Generating API to $GENERATED_API_NAME with version $ARTIFACT_VERSION"
 
 java -jar ./script/swagger-codegen-cli.jar generate \
     -i ./spec/swagger.yml \
@@ -11,7 +11,7 @@ java -jar ./script/swagger-codegen-cli.jar generate \
     -o ./generated/typescript \
     --artifact-version $ARTIFACT_VERSION \
     --additional-properties  \
-    npmName=@WilliamChang80/open-api, \
+    npmName=@$GENERATED_API_NAME, \
     npmVersion=$ARTIFACT_VERSION
 
 cp ./script/publish-typescript.sh ./generated/typescript

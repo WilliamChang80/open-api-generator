@@ -1,6 +1,6 @@
 npm install
 
-echo -e "@WilliamChang80:registry=https://npm.pkg.github.com" > .npmrc
+echo -e "@${GITHUB_REPOSITORY_OWNER}:registry=https://npm.pkg.github.com" > .npmrc
 echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN} " >> .npmrc
 
 npm publish
