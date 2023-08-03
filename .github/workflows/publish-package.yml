@@ -25,6 +25,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Generate Typescript
         run: ./script/generate-typescript.sh
+        env:
+          REGISTRY_USER: ${{ github.repository_owner }}
       - name: Publish Typescript
         run: cd ./generated/typescript && ./publish-typescript.sh
         env:
