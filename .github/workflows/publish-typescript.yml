@@ -1,9 +1,9 @@
-name: Publish Package
+name: Publish Typescript
 
 on:
-  push:
+  create:
     tags:
-      - "*"
+      - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   publish-typescript:
@@ -30,10 +30,3 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.TOKEN }}
           REGISTRY_USER: ${{ github.repository_owner }}
-      - name: Generate Go
-        run: ./script/generate-go.sh
-      - name: Publish Go
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Generate go code"
-          commit_options: "--no-verify"

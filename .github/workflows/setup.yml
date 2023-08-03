@@ -1,0 +1,32 @@
+name: Generate code and bump version
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACT_VERSION: ${GITHUB_SHA::7}
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+      - name: Generate Go
+        run: ./script/generate-go.sh
+      - name: Publish Go
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Generate go code version ${ARTIFACT_VERSION}"
+          commit_options: "--no-verify"
+      - name: Bump version and push tag
+        uses: mathieudutour/github-tag-action@v4.5
+        with:
+          github_token: ${{ secrets.TOKEN }}
