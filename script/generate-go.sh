@@ -8,7 +8,7 @@ echo "Generating API to $GENERATED_API_NAME with version $ARTIFACT_VERSION"
 java -jar ./script/swagger-codegen-cli.jar generate \
     -i ./spec/swagger.yml \
     -l go \
-    -o ./package/go \
+    -o ./generated/go \
     --artifact-version $ARTIFACT_VERSION \
     --additional-properties  \
     packageName=$GENERATED_API_NAME, \
