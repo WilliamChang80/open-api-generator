@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+task execute(type:JavaExec) {
+    main = System.getProperty('mainClass')
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+publishing {
+    
+    publications{
+        maven(MavenPublication) {
+            groupId = System.getEnv("BASE_PACKAGE")
+            version = System.getEnv("ARTIFACT_VERSION")
+        }
+    }
+
+    repositories {
+        maven {
+            url = "https://maven.pkg.github.com/"+System.getEnv("GENERATED_API_NAME")
+            credentials {
+                username = System.getEnv("MAVEN_USERNAME")
+                password = System.getEnv("MAVEN_PASSWORD")
+            }
+        }
+    }
+}
