@@ -58,3 +58,6 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.TOKEN }}
       - name: Publish Java
         run: cd ./generated/java && chmod +x ./gradlew && ./gradlew publish
+        env:
+          MAVEN_USERNAME: ${{ github.repository_owner }}
+          MAVEN_PASSWORD: ${{ secrets.TOKEN }}
