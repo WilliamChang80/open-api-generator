@@ -13,17 +13,17 @@ publishing {
     
     publications{
         maven(MavenPublication) {
-            groupId = System.getEnv("BASE_PACKAGE")
-            version = System.getEnv("ARTIFACT_VERSION")
+            groupId = System.getenv("BASE_PACKAGE")
+            version = System.getenv("ARTIFACT_VERSION")
         }
     }
 
     repositories {
         maven {
-            url = "https://maven.pkg.github.com/"+System.getEnv("GENERATED_API_NAME")
+            url = "https://maven.pkg.github.com/"+System.getenv("GENERATED_API_NAME")
             credentials {
-                username = System.getEnv("MAVEN_USERNAME")
-                password = System.getEnv("MAVEN_PASSWORD")
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
             }
         }
     }
