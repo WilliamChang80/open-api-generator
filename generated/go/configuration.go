@@ -56,7 +56,7 @@ func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "/",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "Swagger-Codegen/32a98b7/go",
+		UserAgent:     "Swagger-Codegen/749ab21/go",
 	}
 	return cfg
 }
