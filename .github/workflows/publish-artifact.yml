@@ -52,7 +52,7 @@ jobs:
       - name: Generate Java
         run: ./script/generate-java.sh
       - name: Update Gradle
-        run: cd ./generated/java && python update-gradle.sh
+        run: cd ./generated/java && python update-gradle.py
         env:
           MAVEN_USERNAME: ${{ github.repository_owner }}
           MAVEN_PASSWORD: ${{ secrets.TOKEN }}
