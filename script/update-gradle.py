@@ -25,5 +25,5 @@ def update_gradle_version():
     print("Updating gradle version...")
     subprocess.run("gradle wrapper --gradle-version 8.0", shell=True)
 
-update_gradle_version()
 update_gradle_properties()
+update_gradle_version()
